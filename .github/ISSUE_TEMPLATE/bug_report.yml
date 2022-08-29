@@ -39,7 +39,7 @@ body:
       required: true
   - type: input
     attributes:
-      label: What is your n8n-nodes-table-transform version?
+      label: What is your n8n-nodes-table-transformation version?
       placeholder: 0.189.0
     validations:
       required: true
