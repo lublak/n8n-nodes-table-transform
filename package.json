@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "This node allows to perform various table manipulations in n8n.",
   "keywords": [
-    "n8n-community-node-package",
-    "n8n-node-athon"
+    "n8n-community-node-package"
   ],
   "main": "index.js",
   "scripts": {

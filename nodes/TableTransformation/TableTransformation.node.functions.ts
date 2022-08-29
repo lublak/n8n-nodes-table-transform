@@ -87,7 +87,7 @@ export function navigateIntoCell(
     };
     if (expand) Object.assign(newItem.json, rowData.json);
     if (typeof colData === 'object') Object.assign(newItem.json, colData);
-    else newItem.json[col] = colData as IDataObject;
+    else newItem.json[col] = colData;
 
     if (rowData.binary !== undefined) {
       newItem.binary = {};
@@ -131,21 +131,21 @@ export function navigateIntoCol(
     }
 
     if (loopArray && Array.isArray(colData)) {
-      colData.forEach((item) => {
+      for (const item of colData) {
         newItem = {
           json: {},
         };
 
         if (expand) Object.assign(newItem.json, rowData.json);
         if (typeof item === 'object') Object.assign(newItem.json, item);
-        else newItem.json[col] = item;
+        else newItem.json[col] = item as IDataObject;
 
         if (rowData.binary !== undefined) {
           newItem.binary = {};
           Object.assign(newItem.binary, rowData.binary);
         }
         newItems.push(newItem);
-      });
+      }
     } else {
       newItem = {
         json: {},
@@ -197,7 +197,7 @@ export function navigateIntoRow(
   let newItem: INodeExecutionData;
   for (const [col, colData] of Object.entries(rowData.json)) {
     if (loopArray && Array.isArray(colData)) {
-      colData.forEach((item) => {
+      for (const item of colData) {
         newItem = {
           json: {},
         };
@@ -215,7 +215,7 @@ export function navigateIntoRow(
           Object.assign(newItem.binary, rowData.binary);
         }
         newItems.push(newItem);
-      });
+      }
     } else {
       newItem = {
         json: {},
